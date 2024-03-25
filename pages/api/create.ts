@@ -1,8 +1,9 @@
 import { PrismaClient } from '@prisma/client';
+import { NextApiRequest, NextApiResponse } from 'next';
 
 const prisma = new PrismaClient();
 
-export default async function handle(req, res) {
+export default async function handle(req: NextApiRequest, res: NextApiResponse) {
   if (req.method === "POST") {
     const { name, type, constellation, magnitude, distance, imageUrl } = req.body;
 
@@ -12,8 +13,8 @@ export default async function handle(req, res) {
           name,
           type,
           constellation,
-          magnitude,
-          distance,
+          magnitude: Number(magnitude),
+          distance: Number(distance),
           imageUrl,
         },
       });
