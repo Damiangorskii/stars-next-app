@@ -29,7 +29,6 @@ const EditStarPage: React.FC = () => {
     return (
         <Layout>
             <div>
-                <h1>Edit Star</h1>
                 {star && <EditStarForm star={star} />}
             </div>
         </Layout>

@@ -34,25 +34,47 @@ const StarCard: React.FC<StarCardProps> = ({ star, onDelete }) => {
   };
 
   return (
-    <div className="border border-gray-300 rounded-lg p-4 m-2">
-      <div className="flex justify-between items-center">
-        <h3 className="text-xl font-bold">
+    <div className="max-w-screen-md mx-auto rounded-lg overflow-hidden shadow-lg bg-white mt-5">
+      <div className="px-6 py-4">
+        <div className="text-gray-700 font-bold text-xl mb-2">
           <a href={`/stars/${star.id}`}>{star.name}</a>
-        </h3>
-        <div>
-          <button onClick={handleEdit} className="bg-blue-500 text-white px-3 py-1 rounded hover:bg-blue-600 mr-2">Edit</button>
-          <button onClick={handleDelete} className="bg-red-500 text-white px-3 py-1 rounded hover:bg-red-600">Delete</button>
         </div>
+        <p className="text-gray-700 text-base">
+          <span className="font-semibold">Type:</span> {star.type}
+        </p>
+        <p className="text-gray-700 text-base">
+          <span className="font-semibold">Constellation:</span> {star.constellation}
+        </p>
+        {star.magnitude && (
+          <p className="text-gray-700 text-base">
+            <span className="font-semibold">Magnitude:</span> {star.magnitude}
+          </p>
+        )}
+        {star.distance && (
+          <p className="text-gray-700 text-base">
+            <span className="font-semibold">Distance:</span> {star.distance} light years
+          </p>
+        )}
       </div>
-      <p>Type: {star.type}</p>
-      <p>Constellation: {star.constellation}</p>
-      {star.magnitude && <p>Magnitude: {star.magnitude}</p>}
-      {star.distance && <p>Distance: {star.distance} light years</p>}
       {star.imageUrl && (
-        <div className="mt-3">
-          <img src={star.imageUrl} alt={star.name} className="max-w-full h-auto rounded-lg" />
+        <div className="w-full overflow-hidden">
+          <img className="w-full h-auto object-cover" src={star.imageUrl} alt={star.name} />
         </div>
       )}
+      <div className="px-6 py-4">
+        <button
+          onClick={handleEdit}
+          className="bg-blue-500 hover:bg-blue-700 text-white font-bold py-2 px-4 rounded mr-2"
+        >
+          Edit
+        </button>
+        <button
+          onClick={handleDelete}
+          className="bg-red-500 hover:bg-red-700 text-white font-bold py-2 px-4 rounded"
+        >
+          Delete
+        </button>
+      </div>
     </div>
   );
 };
