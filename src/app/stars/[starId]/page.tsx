@@ -39,10 +39,14 @@ const StarPage: React.FC = () => {
     return <div>Loading...</div>;
   }
 
+  const handleDelete = async (id: number) => {
+
+  };
+
   return (
     <div>
       <Layout>
-        <StarDetails star={star} />
+        <StarDetails star={star} onDelete={handleDelete} />
       </Layout>
     </div>
   );
