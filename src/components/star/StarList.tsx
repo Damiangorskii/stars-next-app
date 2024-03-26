@@ -11,13 +11,14 @@ interface StarListProps {
     distance?: number;
     imageUrl?: string;
   }[];
+  onDelete: (id: number) => void;
 }
 
-const StarList: React.FC<StarListProps> = ({ stars }) => {
+const StarList: React.FC<StarListProps> = ({ stars, onDelete }) => {
   return (
     <div>
       {stars && stars.map(star => (
-        <StarCard key={star.id} star={star} />
+        <StarCard key={star.id} star={star} onDelete={onDelete} />
       ))}
     </div>
   );

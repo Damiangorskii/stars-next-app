@@ -9,7 +9,7 @@ const Navbar = () => {
           <span className="text-xl font-bold cursor-pointer">Star Dictionary</span>
         </Link>
         <div>
-          <Link href="/create" passHref>
+          <Link href="/stars/create" passHref>
             <span className="p-2 cursor-pointer">Add Star</span>
           </Link>
         </div>
