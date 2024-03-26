@@ -25,7 +25,6 @@ const StarCard: React.FC<StarCardProps> = ({ star, onDelete }) => {
         onDelete(star.id);
       } catch (error) {
         console.error('Error deleting star:', error);
-        alert('Failed to delete the star. Please try again.');
       }
     }
   };
@@ -37,7 +36,9 @@ const StarCard: React.FC<StarCardProps> = ({ star, onDelete }) => {
   return (
     <div className="border border-gray-300 rounded-lg p-4 m-2">
       <div className="flex justify-between items-center">
-        <h3 className="text-xl font-bold">{star.name}</h3>
+        <h3 className="text-xl font-bold">
+          <a href={`/stars/${star.id}`}>{star.name}</a>
+        </h3>
         <div>
           <button onClick={handleEdit} className="bg-blue-500 text-white px-3 py-1 rounded hover:bg-blue-600 mr-2">Edit</button>
           <button onClick={handleDelete} className="bg-red-500 text-white px-3 py-1 rounded hover:bg-red-600">Delete</button>
